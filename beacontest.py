@@ -51,15 +51,14 @@ scanner = BeaconScanner(callback,
 
 scanner.start()
 
- while True:
-        # warte 5 Sekunden
-        time.sleep(5)
+
+ time.sleep(5)
         
         # ob Geräte wieder in Reichweite sind und melde die Zeit der Abwesenheit
-        devices_in_range = check_in_range()
+ devices_in_range = check_in_range()
         
-        if devices_in_range:
-            for device, absence_time in devices_in_range.items():
-                print("Device", device, "was absent for", absence_time, "seconds.")
+if devices_in_range:
+   for device, absence_time in devices_in_range.items():
+        print("Device", device, "was absent for", absence_time, "seconds.")
 
  scanner.stop()
