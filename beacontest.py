@@ -49,13 +49,11 @@ def check_in_range():
 scanner = BeaconScanner(callback, 
     device_filter=IBeaconFilter(uuid="e5b9e3a6-27e2-4c36-a257-7698da5fc140") )
 
-time.sleep(5)
-        
-        # ob Geräte wieder in Reichweite sind und melde die Zeit der Abwesenheit
+# ob Geräte wieder in Reichweite sind und melde die Zeit der Abwesenheit
 devices_in_range = check_in_range()
         
 if devices_in_range:
    for device, absence_time in devices_in_range.items():
         print("Device", device, "was absent for", absence_time, "seconds.")
-
+        
 scanner.stop()
