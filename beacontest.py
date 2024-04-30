@@ -1,7 +1,8 @@
-import bluetooth._bluetooth as bluez
+
 import struct
 import time
-from beacontools import BeaconScanner, IBeaconFilter
+import bluetooth._bluetooth as bluez
+from beacontools import BeaconScanner, IBeaconFilter, IBeaconAdvertisement
 
 uuid = "266B319B-5508-4267-A1B7-678B12E2F02A"
 out_of_range_duration = 10 
