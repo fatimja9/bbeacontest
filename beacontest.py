@@ -29,5 +29,5 @@ try:
 
         # Sleep for a short duration before checking again
         time.sleep(2)
-        
+finally:       
 scanner.stop()
