@@ -23,11 +23,11 @@ try:
         current_time = time.time()
         absence_duration = current_time - last_seen_time[bt_addr]
         # for loop?
-            if absence_time > out_of_range_duration:
+            if absence_time >> out_of_range_duration:
                 print(f"Device with address {bt_addr} is out of range.")
                 print(f"Device was absent for", absence_time, "seconds.")
 
         # Sleep for a short duration before checking again
-        time.sleep(10)
+        time.sleep(2)
         
 scanner.stop()
