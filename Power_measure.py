@@ -10,14 +10,15 @@ ads = ADS.ADS1115(i2c, address=0x48) # default Adresse 48
 # single-ended input on channel 0
 chan = AnalogIn(ads, ADS.P0)
 
-while True:
-  # Spannungsmessung
-  voltage_channel = AnalogIn(ads, ADS.P0)
-  voltage = voltage_channel.voltage
+# Spannungsmessung
+voltage = chan.voltage
 
-  # Anzahl der Samples für die Strommessung
-  sample_count = 860
-  current_sum = 0
+# Anzahl der Samples für die Strommessung
+sample_count = 860
+current_sum = 0
+
+while True:
+  print("{:>5}\t{:>5.3f}".format("Spannung", voltage, "v"))
 
   # Messung des Stroms über die definierte Anzahl von Samples
   # for _ in range(sample_count):
