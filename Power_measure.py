@@ -11,8 +11,7 @@ ads = ADS.ADS1115(i2c, address=0x48) # default Adresse 48
 chan = AnalogIn(ads, ADS.P0)
 
 while True:
-
-  # Kanal für die Spannungsmessung
+  # Spannungsmessung
   voltage_channel = AnalogIn(ads, ADS.P0)
   voltage = voltage_channel.voltage
 
