@@ -16,9 +16,9 @@ chan = AnalogIn(ads, ADS.P0, ADS.P1)
 voltage_channel = AnalogIn(ads, ADS.P2)
 voltage = voltage_channel.voltage
 
-sample_count = 860  
+sample_count = 860      # Samples
 current_sum = 0
-shunt_resistor_ohms = 0.1 
+shunt_resistor = 0.1    # Ohm
 
 while True:
   print(f"Spannung: {voltage:.4f} V")
@@ -26,7 +26,7 @@ while True:
   # Messung des Stroms über die definierte Anzahl von Samples
   for _ in range(sample_count):
     voltage = chan.voltage
-    current = voltage / shunt_resistor_value    # I = U / R
+    current = voltage / shunt_resistor   # I = U / R
     # Aufsummierung der Stromwerte
     current_sum += current
     time.sleep(1e-3) 
