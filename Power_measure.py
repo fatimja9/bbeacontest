@@ -1,4 +1,5 @@
 import busio
+import time
 import board
 import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
@@ -17,9 +18,11 @@ voltage = chan.voltage
 sample_count = 860
 current_sum = 0
 
-while True:
-  print("{:>5}\t{:>5.3f}".format("Spannung", voltage, "v"))
+shunt_resistor_ohms = 0.1 
 
+while True:
+  print(f"Spannung: {voltage:.4f} V")
+  
   # Messung des Stroms über die definierte Anzahl von Samples
   # for _ in range(sample_count):
     # Messung des Stroms und Aufsummierung
@@ -27,4 +30,5 @@ while True:
 
   # Leistung berechnen und Ausgabe P = UI
   power = voltage * current_sum
-  print("{:>5}\t{:>5}".format("Leistung:", power, "w"))
+  print(f"Leistung: {power:.4f} W")
+  time.sleep(1)  # Adjust as needed
